@@ -14,3 +14,12 @@ run `bootstrap`, but clearly put some thought into this first, as it will overwr
 ### notes
 
 planning to add some notes on vim here
+
+## iterm
+
+```
+font:    sf mono
+weight:  light
+marginx: 30
+marginy: 30
+```

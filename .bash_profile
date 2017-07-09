@@ -9,3 +9,6 @@ alias refresh='. ~/.bash_profile'
 
 # npm install from cache
 alias npmi='npm install --cache-min Infinity'
+
+# cleanup directories
+alias cleanup='find . -name ‘*.DS_Store’ -type f -delete'
