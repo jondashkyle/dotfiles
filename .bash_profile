@@ -12,3 +12,9 @@ alias npmi='npm install --cache-min Infinity'
 
 # cleanup directories
 alias cleanup='find . -name ‘*.DS_Store’ -type f -delete'
+
+# projects
+alias projects='cd ~/projects/active && ls'
+
+# ssh
+alias sandbox='ssh jondashkyle@104.236.80.10'
