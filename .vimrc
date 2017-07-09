@@ -4,6 +4,22 @@ colorscheme true-monochrome
 :set background=dark
 :set breakindent
 
+" txt formatting and wrapping
+autocmd BufRead,BufNewFile   *.txt setlocal linebreak wrap formatoptions=1 columns=80
+autocmd BufRead,BufNewFIle,VimResized *.txt if (&columns > 80) | setlocal columns=80 | endif
+
+" split navigation
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" jumping
+nnoremap j gj
+nnoremap k gk
+vnoremap j gj
+vnoremap k gk
+
 " tabs and display
 set autoindent
 set smartindent
@@ -13,7 +29,6 @@ set softtabstop=2
 set tabstop=2
 set expandtab
 set list listchars=tab:\ \ ,trail:·   " display tabs and trailing spaces visually
-set colorcolumn=80                    " show are marker at 80 chars
 set nowrap                            " don't wrap lines
 set linebreak                         " wrap lines at convenient points
 
@@ -24,8 +39,6 @@ set nowritebackup
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 
-
-
 " general
 set splitright       " split to the right
 set splitbelow       " split to the bottom
@@ -33,10 +46,10 @@ set incsearch        " find the next match as we type the search
 set hlsearch         " hilight searches by default
 set number           " line numbers are great
 
-" Mappings
+" mappings
 nnoremap gb :ls<CR>:b<Space>
 
-" Explore
+" explore
 let g:netrw_liststyle=3
 let mapleader=" "
 map <leader>k :Explore<cr> 
