@@ -5,14 +5,18 @@ colorscheme true-monochrome
 :set breakindent
 
 " txt formatting and wrapping
-autocmd BufRead,BufNewFile   *.txt setlocal linebreak wrap formatoptions=1 columns=80
-autocmd BufRead,BufNewFIle,VimResized *.txt if (&columns > 80) | setlocal columns=80 | endif
+autocmd BufRead,BufNewFile   *.txt,*.md setlocal linebreak wrap formatoptions=1 columns=80
+autocmd BufRead,BufNewFIle,VimResized *.txt,*.md if (&columns > 80) | setlocal columns=80 | endif
 
 " split navigation
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+" insert blank lines
+nnoremap <silent><A-j> :set paste<CR>m`o<Esc>``:set nopaste<CR>
+nnoremap <silent><A-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
 
 " jumping
 nnoremap j gj
@@ -57,11 +61,26 @@ map <leader>k :Explore<cr>
 " Don't require saving a buffer before switching buffers
 set hidden
 
-" Ctrl P
-set runtimepath^=~/.vim/bundle/ctrlp.vim
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+" bind \ (backward slash) to grep shortcut
+command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
 
-" Nerd Tree
+" ctrl p
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|dist'
+
+" silver searcher
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif
+
+" nerd tree
 set runtimepath^=~/.vim/bundle/nerdtree
 let NERDTreeShowHidden=1
 map <C-n> :NERDTreeToggle<CR>

@@ -26,6 +26,7 @@ hi IncSearch       guifg=#000000    guibg=#FFFFFF    ctermfg=black    ctermbg=wh
 hi Search          guifg=#000000    guibg=#FFFFFF    ctermfg=black    ctermbg=white    gui=ITALIC       cterm=NONE
 hi Visual          guifg=#000000    guibg=#FFFFFF    ctermfg=black    ctermbg=white    gui=ITALIC       cterm=NONE
 hi VisualNOS       guifg=#000000    guibg=#FFFFFF    ctermfg=black    ctermbg=white    gui=ITALIC       cterm=NONE
+hi BlueLine        guifg=#FFFFFF    guibg=#000000    ctermfg=black     ctermbg=white    gui=NONE         cterm=NONE
 
 "" white fg w/white bg
 hi CursorColumn    guifg=#FFFFFF    guibg=#000000    ctermfg=black     ctermbg=white    gui=NONE         cterm=NONE
