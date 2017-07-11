@@ -61,24 +61,9 @@ map <leader>k :Explore<cr>
 " Don't require saving a buffer before switching buffers
 set hidden
 
-" bind \ (backward slash) to grep shortcut
-command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
-
 " ctrl p
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|dist'
-
-" silver searcher
-if executable('ag')
-  " Use ag over grep
-  set grepprg=ag\ --nogroup\ --nocolor
-
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
-endif
 
 " nerd tree
 set runtimepath^=~/.vim/bundle/nerdtree
